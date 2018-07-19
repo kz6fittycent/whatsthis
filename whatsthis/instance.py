@@ -26,6 +26,11 @@ class Instance:
         pass
 
     @property
+    def cpus(self):
+        """TODO."""
+        pass
+
+    @property
     def cores(self):
         """TODO."""
         pass

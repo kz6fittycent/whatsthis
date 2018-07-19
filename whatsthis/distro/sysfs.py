@@ -3,26 +3,12 @@
 
 from whatsthis.distro import Distro
 
+LEXICON = {
+    'cpu': 'sys/devices/system/cpu/cpu{index}/{attribute}',
+    'cpu_cache': 'sys/devices/system/cpu/cpu{index}/cache/{attribute}',
+    'node': 'sys/devices/system/node/node{index}/{attribute}',
+}
+
 
 class Sysfs(Distro):
     """TODO."""
-
-    @property
-    def nodes(self):
-        """TODO."""
-        return []
-
-    @property
-    def node(self, index, attribute):
-        """TODO."""
-        pass
-
-    @property
-    def cpu(self, index, attribute):
-        """TODO."""
-        pass
-
-    @property
-    def cpu_cache(self, index, attribute):
-        """TODO."""
-        pass
