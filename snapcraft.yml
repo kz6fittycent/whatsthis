@@ -1,0 +1,19 @@
+name: whatsthis
+version: 18.2
+summary: TODO
+description: |
+  TODO
+architectures: [amd64]
+grade: stable
+confinement: strict
+
+apps:
+    whatsthis:
+        command: bin/whatsthis
+
+parts:
+    whatsthis:
+        plugin: python
+        source: https://github.com/powersj/whatsthis
+        source-type: git
+
