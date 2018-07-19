@@ -3,8 +3,6 @@
 
 import os
 
-LEXICON = {}
-
 
 class Distro:
     """TODO."""
@@ -12,10 +10,12 @@ class Distro:
     def __init__(self, data_dir='/'):
         """TODO."""
         self.data_dir = data_dir
+        self.paths = {}
 
     def query(self, key, index, attribute):
         """TODO."""
-        return self.read(LEXICON[key].format(index, attribute))
+        file_path = self.paths[key].format(index=index, attribute=attribute)
+        return self.read(file_path)
 
     def read(self, file_path):
         """TODO."""
