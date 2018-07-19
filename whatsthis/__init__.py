@@ -4,7 +4,9 @@
 __features__ = {
     'cloud': {},
     'distro': {},
-    'hardware': {},
+    'hardware': {
+        'compute'
+    },
     'subcommands': [
         'collect',
         'features',
@@ -12,4 +14,4 @@ __features__ = {
     ]
 }
 
-__version__ = '18.1.1'
+__version__ = '18.2'
