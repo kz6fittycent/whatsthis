@@ -25,7 +25,7 @@ import shutil
 import tarfile
 import tempfile
 
-from whatsthis.util import execute
+from whatsthis.distro import Distro
 
 PROC_FILES = [
     '/proc/buddyinfo',
@@ -65,8 +65,8 @@ class Collect:
             output_dir: directory to place output in (default: current dir)
         """
         self._log = logging.getLogger(__name__)
+        self.distro = Distro()
         self.tmp_dir = tempfile.mkdtemp(prefix='whatsthis-')
-        self._log.debug('tempdir: %s', self.tmp_dir)
 
         self.collect()
         self.tar_output(output_dir)
@@ -93,7 +93,7 @@ class Collect:
         """
         self._log.info('/sys')
 
-        out, _, _ = execute([
+        out, _, _ = self.distro.execute([
             'find', '/sys', '-noleaf', '-type', 'f', '-perm', '/444'
         ])
 
@@ -127,7 +127,7 @@ class Collect:
         self._log.debug(file_path)
         self._make_parent_dir(file_path)
 
-        _, err, return_code = execute([
+        _, err, return_code = self.distro.execute([
             'cp', '--recursive', '--no-dereference',
             '--preserve=mode,timestamps', '--dereference', '--parents',
             file_path, self.tmp_dir
@@ -150,7 +150,7 @@ class Collect:
         self._make_parent_dir(file_path)
         filename = os.path.join(self.tmp_dir, file_path[1:])
 
-        _, err, return_code = execute([
+        _, err, return_code = self.distro.execute([
             'dd', 'status=noxfer', 'iflag=nonblock',
             'if=%s' % file_path,
             'of=%s' % filename

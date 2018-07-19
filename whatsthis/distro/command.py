@@ -7,16 +7,7 @@ from whatsthis.distro import Distro
 class Command(Distro):
     """TODO."""
 
-    def __init__(self):
-        """TODO."""
-        super().__init__()
-
-        self.paths = {
-            'cpuinfo': 'proc/cpuinfo',
-            'meminfo': 'proc/meminfo',
-        }
-
     @property
     def arch(self):
         """TODO."""
-        pass
+        self.execute('arch')

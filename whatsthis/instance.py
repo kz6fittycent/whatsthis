@@ -18,7 +18,7 @@ class Instance:
     @property
     def arch(self):
         """TODO."""
-        pass
+        return self.cmd.arch
 
     @property
     def books(self):
@@ -43,7 +43,8 @@ class Instance:
     @property
     def memory(self):
         """TODO."""
-        pass
+        meminfo = self.proc.meminfo
+        return meminfo
 
     @property
     def sockets(self):
