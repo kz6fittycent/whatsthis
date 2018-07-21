@@ -7,6 +7,10 @@ __features__ = {
     'hardware': {
         'compute'
     },
+    'output': {
+        'cli',
+        'json'
+    },
     'subcommands': [
         'collect',
         'features',

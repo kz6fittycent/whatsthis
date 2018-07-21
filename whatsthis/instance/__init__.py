@@ -1,7 +1,6 @@
 # This file is part of whatsthis. See LICENSE file for license information.
 """TODO."""
 
-from whatsthis.instance.compute import Compute
 from whatsthis.instance.distro.command import Command
 from whatsthis.instance.distro.proc import Proc
 from whatsthis.instance.distro.sysfs import Sysfs
@@ -30,10 +29,3 @@ class Instance:
         total = meminfo[0].split(' ')[-2]
 
         return total
-
-    @property
-    def compute(self):
-        """TODO."""
-        compute = Compute()
-
-        return compute.cores

@@ -21,7 +21,10 @@ def _setup_args():
         '--debug', action='store_true', help='show debug logging'
     )
     parser.add_argument(
-        '--json', action='store_true', help='output in JSON rather than text'
+        '--output-formatter',
+        default='cli',
+        choices=['cli', 'json'],
+        help='output formatter to use (default: cli)'
     )
 
     subparsers = parser.add_subparsers(title='Subcommands', dest='subcommand')
@@ -93,7 +96,7 @@ def launch():
     verify_platform_support()
 
     if not args.subcommand:
-        Discovery(args.json, args.data_dir)
+        Discovery(args.output_formatter, args.data_dir)
     elif args.subcommand == 'features':
         _print_features()
     elif args.subcommand == 'collect':

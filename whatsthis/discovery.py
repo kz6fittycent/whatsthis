@@ -19,18 +19,22 @@ class Discovery:
         self.instance = Instance(data_dir)
 
         discovery_objects = [
-            self.cloud, self.compute, self.container, self.distro, self.io,
+            self.cloud,
+            self.compute,
+            self.container,
+            self.distro,
+            self.io,
             self.virtualization,
         ]
         for method in discovery_objects:
             method()
 
         if output_formatter == 'json':
-            JSONCompositor(self.data)
+            compositor = JSONCompositor(self.data)
         elif output_formatter == 'cli':
-            CLICompositor(self.data)
-        else:
-            self._log.error('unknown output formatter: %s', output_formatter)
+            compositor = CLICompositor(self.data)
+
+        compositor.print()
 
     def cloud(self):
         """TODO."""
