@@ -1,32 +1,14 @@
 # This file is part of whatsthis. See LICENSE file for license information.
 """TODO."""
 
-from whatsthis.distro.command import Command
-from whatsthis.distro.proc import Proc
-from whatsthis.distro.sysfs import Sysfs
+from whatsthis.instance import Instance
 
 
-class Instance:
+class Compute(Instance):
     """TODO."""
-
-    def __init__(self):
-        """TODO."""
-        self.cmd = Command()
-        self.proc = Proc()
-        self.sysfs = Sysfs()
-
-    @property
-    def arch(self):
-        """TODO."""
-        return self.cmd.arch
 
     @property
     def books(self):
-        """TODO."""
-        pass
-
-    @property
-    def cpus(self):
         """TODO."""
         pass
 
@@ -36,15 +18,19 @@ class Instance:
         pass
 
     @property
+    def cpus(self):
+        """TODO."""
+        pass
+
+    @property
     def drawers(self):
         """TODO."""
         pass
 
     @property
-    def memory(self):
+    def nodes(self):
         """TODO."""
-        meminfo = self.proc.meminfo
-        return meminfo
+        pass
 
     @property
     def sockets(self):

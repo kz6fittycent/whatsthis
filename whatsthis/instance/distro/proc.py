@@ -1,13 +1,13 @@
 # This file is part of whatsthis. See LICENSE file for license information.
 """TODO."""
 
-from whatsthis.distro import Distro
+from whatsthis.instance.distro import Distro
 
 
 class Proc(Distro):
     """TODO."""
 
-    def __init__(self):
+    def __init__(self, data_dir='/'):
         """TODO."""
         super().__init__()
 
@@ -24,4 +24,4 @@ class Proc(Distro):
     @property
     def meminfo(self):
         """TODO."""
-        return self.read(self.paths['meminfo'])
+        return self.read(self.paths['meminfo']).split('\n')

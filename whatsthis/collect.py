@@ -25,7 +25,7 @@ import shutil
 import tarfile
 import tempfile
 
-from whatsthis.distro import Distro
+from whatsthis.instance.distro import Distro
 
 PROC_FILES = [
     '/proc/buddyinfo',
