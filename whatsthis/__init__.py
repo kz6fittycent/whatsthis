@@ -5,12 +5,12 @@ __features__ = {
     'cloud': {},
     'distro': {},
     'hardware': {
-        'compute'
+        'compute': {}
     },
-    'output': {
+    'output': [
         'cli',
         'json'
-    },
+    ],
     'subcommands': [
         'collect',
         'features',
