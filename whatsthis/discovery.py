@@ -42,7 +42,7 @@ class Discovery:
 
     def compute(self):
         """TODO."""
-        pass
+        compute = instance.compute()
 
     def container(self):
         """TODO."""
